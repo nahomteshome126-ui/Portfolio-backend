@@ -9,6 +9,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ✅ ADD THIS ROUTE
+app.get('/', (req, res) => {
+    res.send('Backend is running 🚀');
+});
+
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('✅ MongoDB connected'))
     .catch(err => console.log('❌ MongoDB connection error:', err));
